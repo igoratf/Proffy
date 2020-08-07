@@ -93,12 +93,12 @@
     margin-top: 3.2rem;
 }
 
-#page-teacher-form main label {
-    color: var(--color-text-complement);
-}
-
 #page-teacher-form main footer button:hover {
     background: var(--color-secondary-dark);
+}
+
+#page-teacher-form main label {
+    color: var(--color-text-complement);
 }
 
 @media (min-width: 700px) {

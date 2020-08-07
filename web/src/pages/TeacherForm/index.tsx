@@ -1,4 +1,5 @@
 import React, { useState, FormEvent } from "react";
+import { useHistory } from "react-router-dom";
 import PageHeader from "../../components/PageHeader";
 import Input from "../../components/Input";
 import Textarea from "../../components/Textarea";
@@ -9,6 +10,8 @@ import "./styles.css";
 import api from "../../services/api";
 
 function TeacherForm() {
+  const history = useHistory();
+
   const [name, setName] = useState("");
   const [avatar, setAvatar] = useState("");
   const [whatsapp, setWhatsapp] = useState("");
@@ -49,6 +52,7 @@ function TeacherForm() {
       schedule: scheduleItems
     }).then(() => {
       alert('Registered successfully!');
+      history.push('/study');
     })
     .catch(err => {
       alert('Error on registering');
