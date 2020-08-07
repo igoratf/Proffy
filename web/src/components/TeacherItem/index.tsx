@@ -2,8 +2,8 @@ import React from "react";
 import whatsAppIcon from "../../assets/images/icons/whatsapp.svg";
 import "./styles.css";
 
-interface TeacherItemProps {
-  teacher: {
+
+export interface Teacher {
     name: string;
     avatar: string;
     bio: string;
@@ -11,7 +11,10 @@ interface TeacherItemProps {
     id: number;
     subject: string;
     whatsapp: string;
-  };
+}
+
+interface TeacherItemProps {
+  teacher: Teacher;
 }
 
 const TeacherItem: React.FC<TeacherItemProps> = ({ teacher: {name, avatar, bio, cost, id, subject, whatsapp} }) => {
@@ -37,10 +40,10 @@ const TeacherItem: React.FC<TeacherItemProps> = ({ teacher: {name, avatar, bio, 
           Cost/hour
           <strong>$ {cost}</strong>
         </p>
-        <button type="button">
+        <a href={`https://wa.me/${whatsapp}`}>
           <img src={whatsAppIcon} alt="Whatsapp" />
           Make contact
-        </button>
+        </a>
       </footer>
     </article>
   );
