@@ -63,17 +63,17 @@ function TeacherForm() {
   return (
     <div id="page-teacher-form" className="container">
       <PageHeader
-        title="Que incrível que você quer dar aulas"
-        description="O primeiro passo é preencher o formulário de descrição"
+        title="It's great you want to teach"
+        description="The first step is to fill the form below"
       />
 
       <main>
         <form onSubmit={handleCreateClass}>
           <fieldset>
-            <legend>Seus dados</legend>
+            <legend>Your info</legend>
             <Input
               name="name"
-              label="Nome completo"
+              label="Full name"
               value={name}
               onChange={(e) => setName(e.target.value)}
             />
@@ -91,17 +91,17 @@ function TeacherForm() {
             />
             <Textarea
               name="bio"
-              label="Biografia"
+              label="Bio"
               value={bio}
               onChange={(e) => setBio(e.target.value)}
             />
           </fieldset>
 
           <fieldset>
-            <legend>Sobre a aula</legend>
+            <legend>About the lesson</legend>
             <Select
               name="subject"
-              label="Matéria"
+              label="Subject"
               value={subject}
               onChange={(e) => setSubject(e.target.value)}
               options={[
@@ -161,11 +161,11 @@ function TeacherForm() {
 
           <footer>
             <p>
-              <img src={warningIcon} alt="Aviso importante" />
-              Importante! <br />
-              Preencha todos os dados
+              <img src={warningIcon} alt="Warning" />
+              Important! <br />
+              Fill all the fields
             </p>
-            <button type="submit">Salvar cadastro</button>
+            <button type="submit">Save</button>
           </footer>
         </form>
       </main>
