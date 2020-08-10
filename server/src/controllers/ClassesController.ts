@@ -12,16 +12,15 @@ export default class ClassesController {
   async index(req: Request, res: Response) {
     const filters = req.query;
 
-    console.log("FILTERS ", filters);
-
     const subject = filters.subject as string;
     const week_day = filters.week_day as string;
     const time = filters.time as string;
 
-    if (!filters.week_day || !filters.subject || !filters.time) {
-      return res.status(400).json({
-        error: "Missing filters to search classes",
-      });
+    if (!filters.week_day && !filters.subject && !filters.time) {
+      const classes = await db("classes")
+        .join("users", "classes.user_id", "=", "users.id")
+        .select(["classes.*", "users.*"]);
+      return res.json(classes);
     }
 
     const timeInMinutes = convertHourToMinutes(time);
@@ -86,6 +85,7 @@ export default class ClassesController {
     } catch (error) {
       trx.rollback();
 
+      console.log("error ", error);
       return res.status(400).json({
         error: "Unexpected error while creating new class",
       });
