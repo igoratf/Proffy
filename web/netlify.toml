@@ -1,8 +1,3 @@
-[build]
-  command = "yarn build"
-  publish="/web/build"
-  base = "/web"
-
 [[redirects]]
   from = "/*"
   to = "/index.html"
